@@ -1,5 +1,6 @@
 import { useState } from "react";
 import FormInput from "../../Layout__/Components/FormInput";
+import { useNavigate } from "react-router-dom";
 
 const INITIAL_FORM_STATE = {
     email: '',
@@ -14,6 +15,8 @@ function SignIn() {
         passwordError: false,
         emailCheck: false
     })
+
+    const navigate = useNavigate();
 
     function handleChange(e) {
         const {name, value} = e.target;
@@ -57,6 +60,8 @@ function SignIn() {
        if(isValid) {
         console.log(formData);
         setFormData(INITIAL_FORM_STATE);
+
+        navigate('/home');
        }
         
     }

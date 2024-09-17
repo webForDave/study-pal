@@ -1,5 +1,6 @@
 import { useState } from "react";
 import FormInput from "../../Layout__/Components/FormInput";
+import { useNavigate } from "react-router-dom";
 
 const INITIAL_FORM_STATE = {
     first_name: '',
@@ -20,6 +21,8 @@ function SignUp() {
         confirm_password: false,
         passwordsCheck: false
     });
+
+    const navigate = useNavigate();
 
     function handleChange(e) {
         const {name, value} = e.target;
@@ -87,6 +90,8 @@ function SignUp() {
         if(isValid) {
             setFomData(INITIAL_FORM_STATE);
             console.log(formData);
+
+            navigate('/home');
         }
     }
     
